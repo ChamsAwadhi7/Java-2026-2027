@@ -1,18 +1,47 @@
 import java.util.Scanner;
 
 public class ZooManagement {
-
-    int nbrCages;
-    String zooName;
     public static void main(String[] args) {
-        ZooManagement zoo= new ZooManagement();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("veuillez entrer le nom de zoo");
-        zoo.zooName = scanner.nextLine();
-        System.out.println("veuillez entrer le nom de cages");
-        zoo.nbrCages = scanner.nextInt();
-        if(zoo.nbrCages>0 && zoo.zooName.length()>0){
-        System.out.println(zoo.zooName+" comporte "+zoo.nbrCages+" Cages");
-        }else{
-        System.out.println("Erreur, veuillez verifier vos données");
-}}}
+        /* Instruction 1
+        int nbrCages = 20;
+        String zooName = "my zoo";
+        System.out.println(zooName + " comporte " + nbrCages + " cages.");
+         */
+        //Instruction 2
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Entrez le nom du zoo : ");
+        String zooName = sc.nextLine();
+
+        int nbrCages;
+        do {
+            System.out.print("Entrez le nombre de cages (entier positif) : ");
+            nbrCages = sc.nextInt();
+        } while (nbrCages <= 0);
+
+        System.out.println(zooName + " comporte " + nbrCages + " cages.");
+        //Prosit 2
+        Animal lion = new Animal();
+        lion.family = "Félidé";
+        lion.name = "Lion";
+        lion.age = 5;
+        lion.isMammal = true;
+
+        Zoo myZoo = new Zoo();
+        myZoo.name = "Parc Animalier";
+        myZoo.city = "Tunis";
+        myZoo.nbrCages = 20;
+
+        System.out.println("Zoo : " + myZoo.name + " à " + myZoo.city);
+        System.out.println("Animal : " + lion.name + " (" + lion.family + ")");
+
+        Animal lion1 = new Animal("Félidé", "Lion", 5, true);
+        Zoo myZoo1 = new Zoo("Parc Animalier", "Tunis", 20);
+
+        System.out.println("Animal créé : " + lion1.name);
+        System.out.println("Zoo créé : " + myZoo1.name + " (" + myZoo.city + ")");
+
+        myZoo.displayZoo();
+        System.out.println(myZoo);
+    }
+}
